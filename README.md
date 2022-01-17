@@ -79,10 +79,32 @@ These are not all of the variables that are pre-defined in your script but those
 
 Now finally, here is the list of all native functions!
 
-| Name | Return | Parameters | Description | Example call |
+| Name | Return | Parameters | Description | Usage |
 | :---: | :---: | :---: | :--- | :---: |
-| `Enable` | none | none | forces to enable the current script | `if IDNO == gui.MessageBoxA("Are you sure you want to exit!?", "My Script Name", MB_ICONWARNING | MB_YESNO) then Enable() end` |
-| `Disable` | none | none | forces to disable the current script | `if IDYES == gui.MessageBoxA("Do you want to exit?", "My Script Name", MB_ICONQUESTION | MB_YESNO) then Disable() end` |
+| `Enable` | none | none | forces to enable the current script | could be useful in `OnGUIDisable` |
+| `Disable` | none | none | forces to disable the current script | could be useful in `OnGUIEnable` |
+| `gui.MessageBoxA` | pressed button id: number | message: string, title: string, type: number | N/A | `if IDYES == gui.MessageBoxA("This box will have YES and NO buttons.", "Example Message Box", MB_YESNO) then ...` |
+| `gui.MessageBoxW` | same as MessageBoxA | same as MessageBoxA | the difference to MessageBoxA is that you can use wide characters in the message/title | same as MessageBoxA |
+| `gui.MessageBoxExA` | none | same as MessageBoxA | the difference to MessageBoxA is that this won't pause the entire game<br>but won't return anything | same as MessageBoxA |
+| `gui.Checkbox` | checked: boolean | label: string, checked: boolean | N/A |  `checkBox1 = gui.Checkbox("Label here", checkBox1)` |
+| `gui.Button` | clicked: boolean | label: string | N/A |  `if gui.Button("Label here") then ... end` |
+| `gui.Hotkey` | key: number, getKey: boolean | key: number, label: string, random_id: string, bGetKey: boolean | N/A |  `key1, bGetKey1 = gui.Hotkey(key1, "Text here", "##thisisrandomid", bGetKey1)` |
+| `gui.Text` | none | label: string | N/A | `gui.Text("Example Text")` |
+| `gui.FloatSlider` | value: float | label: string, value: float, min: float, max: float, format: string = "%.3f" | N/A | `float1 = gui.FloatSlider("Label", float1, 0.0, 10.0, "%.2f")` |
+| `gui.IntSlider` | value: number | label: string, value: number, min: number, max: number, format: string = "%d" | N/A | `int1 = gui.IntSlider("Label", int1, 0, 10)` |
+| `gui.InputFloat` | value: float | label: string, value: float, step: float, step_fast: float = 10.0 | N/A | `float1 = gui.InputFloat("Label", float1, 1.0)` |
+| `gui.InputInt` | value: number | label: string, value: number, step: number, step_fast: number = 10 | N/A | `int1 = gui.InputInt("Label", int1, 1)` |
+| `gui.InputText` | value: string | label: string, value: string, string_max_size: number = 50 | N/A | `string1 = gui.InputText("Label", string1)` |
+| `gui.Combo` | value: number | selected_item: string, selected_item: number, items: list[string] | N/A | `selected_item1 = gui.Combo("Label", selected_item1, { "Item1", "Item2", "Item3" })` |
+
+
+
+
+
+
+
+
+
 
 
 
