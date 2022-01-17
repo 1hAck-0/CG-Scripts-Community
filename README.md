@@ -81,8 +81,8 @@ Now finally, here is the list of all native functions!
 
 | Name | Return | Parameters | Description | Example call |
 | :---: | :---: | :---: | :--- | :---: |
-| `Enable` | none | none | forces to enable the current script | `if IDNO == gui.MessageBoxA("Are you sure you want to exit!?", "My Script Name", MB_ICONWARNING | MB_YESNO) then Enable() end`
-| `Disable` | none | none | forces to disable the current script | `if IDYES == gui.MessageBoxA("Do you want to exit?", "My Script Name", MB_ICONQUESTION | MB_YESNO) then Disable() end`
+| `Enable` | none | none | forces to enable the current script | `if IDNO == gui.MessageBoxA("Are you sure you want to exit!?", "My Script Name", MB_ICONWARNING | MB_YESNO) then Enable() end` |
+| `Disable` | none | none | forces to disable the current script | `if IDYES == gui.MessageBoxA("Do you want to exit?", "My Script Name", MB_ICONQUESTION | MB_YESNO) then Disable() end` |
 
 
 
