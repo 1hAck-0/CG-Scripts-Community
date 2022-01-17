@@ -83,6 +83,7 @@ Now finally, here is the list of all native functions!
 | :---: | :---: | :---: | :--- | :---: |
 | `Enable` | none | none | forces to enable the current script | could be useful in `OnGUIDisable` |
 | `Disable` | none | none | forces to disable the current script | could be useful in `OnGUIEnable` |
+| `Color` | web_color: number | r: number, g: number = 255, b: number = 255, a: number = 255 | returns a web_color | `draw.AddText(100, 100, "Text", Color(255, 0, 0))` |
 | `gui.MessageBoxA` | pressed button id: number | message: string, title: string, type: number | N/A | `if IDYES == gui.MessageBoxA("This box will have YES and NO buttons.", "Example Message Box", MB_YESNO) then ...` |
 | `gui.MessageBoxW` | same as MessageBoxA | same as MessageBoxA | the difference to MessageBoxA is that you can use wide characters in the message/title | same as MessageBoxA |
 | `gui.MessageBoxExA` | none | same as MessageBoxA | the difference to MessageBoxA is that this won't pause the entire game<br>but won't return anything | same as MessageBoxA |
@@ -96,12 +97,26 @@ Now finally, here is the list of all native functions!
 | `gui.InputInt` | value: number | label: string, value: number, step: number, step_fast: number = 10 | N/A | `int1 = gui.InputInt("Label", int1, 1)` |
 | `gui.InputText` | value: string | label: string, value: string, string_max_size: number = 50 | N/A | `string1 = gui.InputText("Label", string1)` |
 | `gui.Combo` | value: number | selected_item: string, selected_item: number, items: list[string] | N/A | `selected_item1 = gui.Combo("Label", selected_item1, { "Item1", "Item2", "Item3" })` |
-
-
-
-
-
-
+| `gui.Spacing` | none | none | Adds spacing | `gui.Spacing()` |
+| `gui.Separator` | none | none | Adds a seperator | `gui.Separator()` |
+| `gui.SameLine` | none | a little complicated.. | set the next item on the same line as the previous item | `gui.SameLine()` or `gui.SameLine(100)` or `gui.SameLine(0, 10)` |
+| `gui.SetNextItemWidth` | none | width: number | sets the next item's width | `gui.SetNextItemWidth(100)` |
+| `input.IsKeyDown` | state: boolean | key: number | returns true if the key is down | `if input.IsKeyDown(string.byte('J')) then ... end`, this will return true if `J` is down |
+| `input.IsKeyPressed` | state: boolean | key: number | returns true if the key is pressed | `if input.IsKeyPressed(string.byte('J')) then ... end` |
+| `input.GetMouse` | x: number, y: number | none | returns the current mouse position on the screen | `xMouse, yMouse = input.GetMouse()` |
+| `input.SetMouse` | none | x: number, y: number | sets the mouse position (anti-viruses might block it) | `input.SetMouse(0, 0)` |
+| `input.MouseEvent` | none | event: number, x: number, y: number | [documentation](https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-mouse_event) | `input.MouseEvent(MOUSEEVENTF_MOVE, 10, 10)` |
+| `draw.AddLine` | none | x1: number, y1: number, x2: number, y2: number, color: Color = white, width: float = 1.0 | draws a line on the screen | `draw.AddLine(100, 100, 200, 200, Color(255, 0, 0), 2.0)` |
+| `draw.AddRect` | none | trX: number, trY: number, brX: number, brY: number, color: Color = white, width: float = 1.0 | draws a rectangle on the screen | `draw.AddRect(100, 100, 200, 200, Color(255, 0, 255), 2.0)` |
+| `draw.AddFilledRect` | none | trX: number, trY: number, brX: number, brY: number, color: Color = white | draws a filled rectangle on the screen | `draw.AddFilledRect(100, 100, 200, 200, Color(0, 0, 255))` |
+| `draw.AddCircle` | none | centerX: number, centerY: number, radius: number, segments: number, width: number, color: Color = white | draws a circle on the screen | `draw.AddCircle(_WIN_CENTER_X, _WIN_CENTER_Y, 30, 50, 2, Color(255, 0, 0))` |
+| `draw.AddFilledCircle` | none | centerX: number, centerY: number, radius: number, segments: number, color: Color = white | draws a filled circle on the screen | `draw.AddFilledCircle(100, 100, 100, 20, Color(100, 100, 100, 50)` |
+| `draw.AddText` | none | posX: number, posY: number, text: string, color: Color = white | draws text on the screen | `draw.AddText(100, 100, "Text", Color(255, 0, 0))` |
+| `LP.AimAtPos` | none | worldPosX: float, worldPosY: float, worldPosZ: float, smoothness: float = 1.0 | aim at a world location | `LP.AimAtPos(enemyPosX, enemyPosY, enemyPosZ)` |
+| `LP.setHealth` | none | health: number | sets the local player health | `LP.SetHealth(10000)` |
+| `LP.isAlive` | isAlive: boolean | none | returns true if the local player is alive | `amIalive = LP.isAlive()` |
+| `LP.getMB` | mb: MonoBehaviour | none | returns the local player pointer as MonoBehaviour class | `mb = LP.getMB(); mb:getTrm():setPos(0, 0, 0)` |
+| `LP.getRigidbody` | rigidbody: Rigidbody | none | returns the local player's rigidbody | `rb = LP.getRigidbody(); myVelX, myVelY, myVelZ = rb:getVelocity()` |
 
 
 
