@@ -65,7 +65,7 @@ This was just an example for a native function but there are many many others! Y
 There are some global variables that you didn't define yourself. For example: `__GAME_VERSION`, this variable is of type string and as you could guess it tells you the game version. This variable particurally might not be very useful but there many others that are very useful! Here is the list of all pre-defined variables...
 
 | Name | Type | Value | Description |
-| :---: | :---: | :---: | :---: |
+| :---: | :---: | :---: | :--- |
 | `_IN_GAME` | boolean | non-const | is the user in-game |
 | `_WIN_SIZE_X` | number | non-const | game window width |
 | `_WIN_SIZE_Y` | number | non-const | game window height |
@@ -79,10 +79,10 @@ These are not all of the variables that are pre-defined in your script but those
 
 Now finally, here is the list of all native functions!
 
-
-
-
-
+| Name | Return | Parameters | Description | Example call |
+| :---: | :---: | :---: | :--- | :---: |
+| `Enable` | none | none | forces to enable the current script | `if IDNO == gui.MessageBoxA("Are you sure you want to exit!?", "My Script Name", MB_ICONWARNING | MB_YESNO) then<br> Enable()<br>end`
+| `Disable` | none | none | forces to disable the current script | `if IDYES == gui.MessageBoxA("Do you want to exit?", "My Script Name", MB_ICONQUESTION | MB_YESNO) then<br> Disable()<br>end`
 
 
 
