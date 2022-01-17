@@ -118,7 +118,7 @@ Now finally, here is the list of all native functions!
 | `LP.getMB` | mb: MonoBehaviour | none | returns the local player pointer as MonoBehaviour class | `mb = LP.getMB(); mb:getTrm():setPos(0, 0, 0)` |
 | `LP.getRigidbody` | rigidbody: Rigidbody | none | returns the local player's rigidbody | `rb = LP.getRigidbody(); myVelX, myVelY, myVelZ = rb:getVelocity()` |
 
-
+**The documentation is not done, I just have been writing for 3 hours. I will continue tomorrow because there is much left!**
 
 
 
