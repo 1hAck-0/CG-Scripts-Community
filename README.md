@@ -113,10 +113,11 @@ Now finally, here is the list of all native functions!
 | `draw.AddFilledCircle` | none | centerX: number, centerY: number, radius: number, segments: number, color: Color = white | draws a filled circle on the screen | `draw.AddFilledCircle(100, 100, 100, 20, Color(100, 100, 100, 50)` |
 | `draw.AddText` | none | posX: number, posY: number, text: string, color: Color = white | draws text on the screen | `draw.AddText(100, 100, "Text", Color(255, 0, 0))` |
 | `LP.AimAtPos` | none | worldPosX: float, worldPosY: float, worldPosZ: float, smoothness: float = 1.0 | aim at a world location | `LP.AimAtPos(enemyPosX, enemyPosY, enemyPosZ)` |
-| `LP.setHealth` | none | health: number | sets the local player health | `LP.SetHealth(10000)` |
+| `LP.setSpeed` | none | speed: float | sets the local player's movement speed | `LP.setSpeed(100.0)` |
 | `LP.isAlive` | isAlive: boolean | none | returns true if the local player is alive | `amIalive = LP.isAlive()` |
 | `LP.getMB` | mb: MonoBehaviour | none | returns the local player pointer as MonoBehaviour class | `mb = LP.getMB(); mb:getTrm():setPos(0, 0, 0)` |
 | `LP.getRigidbody` | rigidbody: Rigidbody | none | returns the local player's rigidbody | `rb = LP.getRigidbody(); myVelX, myVelY, myVelZ = rb:getVelocity()` |
+| `game.WorldToScreen` | x: float, y: float, isOnScreen: boolean | worldX: float, worldY: float, wordlZ: float | converts a game world position to screen position | `x, y, bShouldDraw = game.WorldToScreen(enemyX, enemyY, enemyZ)` |
 
 **The documentation is not done, I just have been writing for 3 hours. I will continue tomorrow because there is much left!**
 
