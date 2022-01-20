@@ -106,7 +106,7 @@ Now finally, here is the list of all native functions!
 | `input.GetMouse` | x: number, y: number | none | returns the current mouse position on the screen | `xMouse, yMouse = input.GetMouse()` |
 | `input.SetMouse` | none | x: number, y: number | sets the mouse position (anti-viruses might block it) | `input.SetMouse(0, 0)` |
 | `input.MouseEvent` | none | event: number, x: number, y: number | [documentation](https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-mouse_event) | `input.MouseEvent(MOUSEEVENTF_MOVE, 10, 10)` |
-| `input.SetKeyInput` | none | key: number, event: number, time: number = 0 | allows you to simulate key pressing/holding/releasing | `input.SetKeyInput(string.byte('W'), KEYEVENTF_KEYDOWN, 2) -- hold down W for 2 seconds` |
+| `input.SetKey` | none | key: number, event: number, time: number = 0 | allows you to simulate key pressing/holding/releasing | `input.SetKey(string.byte('W'), KEYEVENTF_KEYDOWN, 2) -- hold down W for 2 seconds` |
 | `draw.AddLine` | none | x1: number, y1: number, x2: number, y2: number, color: Color = white, width: float = 1.0 | draws a line on the screen | `draw.AddLine(100, 100, 200, 200, Color(255, 0, 0), 2.0)` |
 | `draw.AddRect` | none | trX: number, trY: number, brX: number, brY: number, color: Color = white, width: float = 1.0 | draws a rectangle on the screen | `draw.AddRect(100, 100, 200, 200, Color(255, 0, 255), 2.0)` |
 | `draw.AddFilledRect` | none | trX: number, trY: number, brX: number, brY: number, color: Color = white | draws a filled rectangle on the screen | `draw.AddFilledRect(100, 100, 200, 200, Color(0, 0, 255))` |
