@@ -150,20 +150,34 @@ Now finally, here is the list of all native functions!
 | `URigidbody:getRot` | pitch: float, yaw: float, roll: float | none | this function is inside the URigidbody table, it returns the rotation of the rb | `pitch, yaw, roll = LP.getRigidbody():getRot()` |
 | `URigidbody:setRot` | none | pitch: float, yaw: float, roll: float | this function is inside the URigidbody table, it sets the rotation of the rb | `LP.getRigidbody():setRot(0, 0, 0)` |
 | `URigidbody:AddForce` | none | forceX: float, forceY: float, forceZ: float | this function is inside the URigidbody table, it adds force to the rb | `LP.getRigidbody(1.0, 1.0, 1.0)` |
-| `UMonoBehaviour:getTrm()` | transform: UTransform | none | this function is inside the UMonoBehaviour table, it returns its transform | `myTrm = LP.getMB():getTrm()` |
-| `UMonoBehaviour:getGameObject()` | gameObject: lightuserdata | none | this function is inside the UMonoBehaviour table, it returns its GameObject | `myGameObject = LP.getMB():getGameObject()` |
-| `UMonoBehaviour:getPos()` | x: float, y: float, z: float | none | this function is inside the UMonoBehaviour table, its a quick way to access the transform's position | `myPosX, myPosY, myPosZ = LP.getMB():getPos()` |
+| `UMonoBehaviour:getTrm` | transform: UTransform | none | this function is inside the UMonoBehaviour table, it returns its transform | `myTrm = LP.getMB():getTrm()` |
+| `UMonoBehaviour:getGameObject` | gameObject: lightuserdata | none | this function is inside the UMonoBehaviour table, it returns its GameObject | `myGameObject = LP.getMB():getGameObject()` |
+| `UMonoBehaviour:getPos` | x: float, y: float, z: float | none | this function is inside the UMonoBehaviour table, its a quick way to access the transform's position | `myPosX, myPosY, myPosZ = LP.getMB():getPos()` |
+| `mem.readPtr` | ptr: lightuserdata | address: number | reads a pointer as a pointer and returns it | `somePtr = mem.readPtr(LP.getMB())` |
+| `mem.readInt` | value: number | address: number | reads a pointer as a integer and returns it | `someInt = mem.readInt(LP.getMB() + 0x10)` |
+| `mem.readFloat` | value: float | address: number | reads a pointer as a float and returns it | `someFloat = mem.readFloat(LP.getMB() + 0x20)` |
+| `mem.readByte` | value: number | address: number | reads a pointer as a byte and returns it | `someByte = mem.readByte(LP.getMB() + 0x30)` |
+| `mem.readString` | value: string | address: number | reads a pointer as a char pointer and returns it | `someString = mem.readString(LP.getMB() + 0x40)` |
+| `mem.readVec2` | x: float, y: float | address: number | reads a pointer as a vector2 and returns it | `someVec2X, someVec2Y = mem.readVec2(LP.getMB() + 0x50)` |
+| `mem.readVec3` | x: float, y: float, z: float | address: number | reads a pointer as a vector3 and returns it | `someVec3X, someVec3Y, someVec3Z = mem.readVec3(LP.getMB() + 0x60)` |
+| `mem.readMBPtr` | ptr: UMonoBehaviour | address: number | reads a pointer as a UMonoBehaviour pointer and returns it | `myMB = mem.readMBPtr(LP.getMB() + 0x70)` |
+| `mem.readTrmPtr` | ptr: UTransform | address: number | reads a pointer as a UTransform pointer and returns it | `myTrm = mem.readTrmPtr(LP.getMB() + 0x80)` |
+| `mem.readStruct` | ptr: lightuserdata | address: number, size: number, tableName: string = "" | reads a pointer as a custom structure and returns it | `myStruct = mem.readStruct(LP.getMB() + 0x90, 0x10)` |
+| `mem.writePtr` | none | address: number, ptr: number | writes to a pointer pointing to a pointer | `mem.writePtr(LP.getMB() + 0x100, 0xFFFFFFF)` |
+| `mem.writeInt` | none | address: number, value: number | writes to an integer pointer | `mem.writeInt(LP.getMB() + 0x110, 100)` |
+| `mem.writeFloat` | none | address: number, value: float | writes to a float pointer | `mem.writeFloat(LP.getMB() + 0x120, 100.0)` |
+| `mem.writeByte` | none | address: number, value: number | writes to a byte pointer  | `mem.writeByte(LP.getMB() + 0x130, true)` |
+| `mem.writeString` | none | address: number, value: string, length: number | copys a string to an address | `mem.writeStr(LP.getMB() + 0x140, "Bruh.", 5)` |
+| `mem.writeVec2` | none | address: number, x: float, y: float | writes to a vector2 pointer | `mem.writeVec2(LP.getMB() + 0x150, 10.0, 10.0)` |
+| `mem.writeVec3` | none | address: number, x: float, y: float, z: float | writes to a vector3 pointer | `mem.writeVec3(LP.getMB() + 0x160, 10.0, 10.0, 10.0)` |
+| `mem.writeStruct` | none | address: number, size: number, source: number (pointer) | copys a structure to a pointer | `mem.writeStruct(LP.getMB() + 0x170, 0x100, randomStructPtr)` |
+| `mem.isValidPtr` | isValid: boolean | address: number | checks if a pointer is a junk pointer and if it is safe to read/write to it | `mem.isValidPtr(LP.getMB() + 0x180)` |
+| `mem.getStaticPtr` | address: number | base: number, offsets: list[number] | reads through a multi-level pointer and returns the end-point | `mem.getStaticPtr(LP.getMB() + 0x190, { 0x10, 0x0, 0x80 })` |
 
+Those are all the functions that are pre-defined in your lua-scripts. By using the last 19 functions (from the *mem* table) you can do a lot of things in the game that aren't in the menu currently at all. I know I didn't explain well how to use those functions, so **feel free to ask for help in the discord server**!
 
-
-
-
-
-**The documentation is not done, I just have been writing for 3 hours. I will continue tomorrow because there is much left!**
-
-
-
-
+###### game.CallFunc()
+Finally here you can read how to call `game.CallFunc()` which I am pretty sure many of you won't understand at all. `game.CallFunc()` calls a game function that might not be made by me or you, it might be in the game, so just by passing in the pointer to the function and specifying it's *return type* and *params*, you can call any game function. To find a game function easily, use `game.GetMethod()`. It is very important that you understand what you should pass as the *return type* and *params*, otherwise it won't work. You only have two options for the *return type*: "Void" and "64". You can only pass in those values as the return type. *Void* means that the game function doesn't return anything and `game.CallFunc()` also won't return anything in that case. *64* means that the game function's return type is 64-bit in size total. So yes, you are limited to only calling game functions that return *Void* or *64-bit* values. As for the *params*, you can pass in *Void*, *64*, *6432*, *6464*. *Void* means that the game function doesn't take any arguments. *64* means the function takes in 64-bits as parameters. *6432* means the function takes in 96-bits as parameters. *6464* means the function takes in 128-bits as parameters. Unless you passed in "Void" as the *params*, you have to accordingly push the arguments that the game function takes, right after the *params*. I know this is more confusing then maths so here are some examples: `game.CallFunc(pFunc, "Void", "64", _64bitArgument)`, `_64bitReturn = game.CallFunc(pFunc, "64", "64", _64bitArgument)`, `game.CallFunc(pFunc, "Void", "6464", _64bitArgument1, _64bitArgument2)`.
 
 
 
