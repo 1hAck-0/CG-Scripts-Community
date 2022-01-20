@@ -150,7 +150,7 @@ Now finally, here is the list of all native functions!
 | `URigidbody:setPos` | none | x: float, y: float, z: float | this function is inside the URigidbody table, it sets the position of the rb | `LP.getRigidbody():setPos(0, 0, 0)` |
 | `URigidbody:getRot` | pitch: float, yaw: float, roll: float | none | this function is inside the URigidbody table, it returns the rotation of the rb | `pitch, yaw, roll = LP.getRigidbody():getRot()` |
 | `URigidbody:setRot` | none | pitch: float, yaw: float, roll: float | this function is inside the URigidbody table, it sets the rotation of the rb | `LP.getRigidbody():setRot(0, 0, 0)` |
-| `URigidbody:AddForce` | none | forceX: float, forceY: float, forceZ: float | this function is inside the URigidbody table, it adds force to the rb | `LP.getRigidbody(1.0, 1.0, 1.0)` |
+| `URigidbody:addForce` | none | forceX: float, forceY: float, forceZ: float | this function is inside the URigidbody table, it adds force to the rb | `LP.getRigidbody(1.0, 1.0, 1.0)` |
 | `UMonoBehaviour:getTrm` | transform: UTransform | none | this function is inside the UMonoBehaviour table, it returns its transform | `myTrm = LP.getMB():getTrm()` |
 | `UMonoBehaviour:getGameObject` | gameObject: lightuserdata | none | this function is inside the UMonoBehaviour table, it returns its GameObject | `myGameObject = LP.getMB():getGameObject()` |
 | `UMonoBehaviour:getPos` | x: float, y: float, z: float | none | this function is inside the UMonoBehaviour table, its a quick way to access the transform's position | `myPosX, myPosY, myPosZ = LP.getMB():getPos()` |
