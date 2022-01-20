@@ -119,7 +119,8 @@ Now finally, here is the list of all native functions!
 | `LP.setSpeed` | none | speed: float | sets the local player's movement speed | `LP.setSpeed(100.0)` |
 | `LP.isAlive` | isAlive: boolean | none | returns true if the local player is alive | `amIalive = LP.isAlive()` |
 | `LP.getMB` | mb: MonoBehaviour | none | returns the local player pointer as MonoBehaviour class | `mb = LP.getMB(); mb:getTrm():setPos(0, 0, 0)` |
-| `LP.getRigidbody` | rigidbody: Rigidbody | none | returns the local player's rigidbody | `rb = LP.getRigidbody(); myVelX, myVelY, myVelZ = rb:getVelocity()` |
+| `LP.getRigidbody` | rigidbody: URigidbody | none | returns the local player's rigidbody | `rb = LP.getRigidbody(); myVelX, myVelY, myVelZ = rb:getVelocity()` |
+| `LP.getCamTransform` | camTrm: UTransform | none | returns the local player's camera transform | `camTrm = LP.getCamTransform(); camTrm.setRot(0.0, 0.0, 0.0)` |
 | `game.WorldToScreen` | x: float, y: float, isOnScreen: boolean | worldX: float, worldY: float, wordlZ: float | converts a game world position to screen position | `x, y, bShouldDraw = game.WorldToScreen(enemyX, enemyY, enemyZ)` |
 | `game.GetPlayers` | players: list[Player] | none | returns a lua list of all alive players in the lobby (local player not included) | `players = game.GetPlayers(); numPlayers = #players` |
 | `game.GetObjectsOfType` | objects: list[MonoBehaviour] | className: string, assemblyName: string | returns a list of Unity Objects in the game, you specify the type | `glassPieces = game.GetObjectsOfType("GlassBreak", "Assembly-CSharp")` |
