@@ -12,7 +12,7 @@ Lua Scripts for the free 1hAck Crab Game Mod Menu and a guide on how to make you
 (8. I don't recommend running unverified scripts unless you can check the code yourself because they could be malicious!)
 
 ## Create Your OWN Scripts! (Part 1 - Introduction)
-**First of all, learn the basics of LUA, it is one of the simplest programming language so it shouldn't be hard! Also make sure to read the ENTIRE TUTORIAL if you want to make an actually useful script!! The documentation is more than enough, you just have to read!!*
+**First of all, learn the basics of LUA, it is one of the simplest programming language so it shouldn't be hard! Also make sure to read the ENTIRE TUTORIAL if you want to make an actually useful script!! The documentation is more than enough, you just have to read!!**
 
 **Btw, anyone who makes at least 1 useful script and shares it on the [discord server](https://discord.gg/Wua44KTJvd) will get the *Script Maker* role ;)**
 
@@ -118,6 +118,10 @@ Now finally, here is the list of all native functions!
 | `LP.getMB` | mb: MonoBehaviour | none | returns the local player pointer as MonoBehaviour class | `mb = LP.getMB(); mb:getTrm():setPos(0, 0, 0)` |
 | `LP.getRigidbody` | rigidbody: Rigidbody | none | returns the local player's rigidbody | `rb = LP.getRigidbody(); myVelX, myVelY, myVelZ = rb:getVelocity()` |
 | `game.WorldToScreen` | x: float, y: float, isOnScreen: boolean | worldX: float, worldY: float, wordlZ: float | converts a game world position to screen position | `x, y, bShouldDraw = game.WorldToScreen(enemyX, enemyY, enemyZ)` |
+| `game.GetPlayers` | players: list[Player] | none | returns a lua list of all alive players in the lobby (local player not included) | `players = game.GetPlayers(); numPlayers = #players` |
+| `game.GetObjectsOfType` | objects: list[MonoBehaviour] | className: string, assemblyName: string | returns a list of Unity Objects in the game, you specify the type | `glassPieces = game.GetObjectsOfType("GlassBreak", "Assembly-CSharp")` |
+| `game.GetMethod` | address: number | assemblyName: string, returnType: string, namespace: string, className: string, methodName: string, parameters: string | returns the full address to a function in the game, you can then call that function from lua in a few ways | `pGameMode_GetFreezeTime = game.GetMethod("Assembly-CSharp", "System.Single", "", "GameMode", "GetFreezeTime", "")` |
+
 
 **The documentation is not done, I just have been writing for 3 hours. I will continue tomorrow because there is much left!**
 
