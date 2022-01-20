@@ -121,6 +121,42 @@ Now finally, here is the list of all native functions!
 | `game.GetPlayers` | players: list[Player] | none | returns a lua list of all alive players in the lobby (local player not included) | `players = game.GetPlayers(); numPlayers = #players` |
 | `game.GetObjectsOfType` | objects: list[MonoBehaviour] | className: string, assemblyName: string | returns a list of Unity Objects in the game, you specify the type | `glassPieces = game.GetObjectsOfType("GlassBreak", "Assembly-CSharp")` |
 | `game.GetMethod` | address: number | assemblyName: string, returnType: string, namespace: string, className: string, methodName: string, parameters: string | returns the full address to a function in the game, you can then call that function from lua in a few ways | `pGameMode_GetFreezeTime = game.GetMethod("Assembly-CSharp", "System.Single", "", "GameMode", "GetFreezeTime", "")` |
+| `game.GetClass` | pKlass: number | assemblyName: string, namespace: string, className: string | returns a pointer to il2cpp game class | `pGameLoopClass = game.GetClass("Assembly-CSharp", "", "GameLoop")` |
+| `game.Cast` | ptr: lightuserdata | objectToCast: lightuserdata/number, metaTableNameToConvertTo: string | allows you to convert a table object to a different table type in lua | `enemy = game.Cast(enemy, "UMonoBehaviour") -- this will cast the 'enemy' object to the MonoBehaviour table` |
+| `game.CallFunc` | none | pFunc: number, returnType: string, params: string, args: ... | calls a game function, you can read about the different types that this function can take | `game.CalFunc(pGameMode_GetFreezeTime, "32", "64", pGameMode)` |
+| `Player:ToMB` | monoBehaviour: UMonoBehaviour | none | this is a function inside the Player table, it casts the object to UMonoBehaviour | `players = game.GetPlayers(); playerMB = players[#players]:ToMB()` |
+| `Player:getPos` | x: float, y: float, z: float | none | this is a function inside the Player table, it returns the position of the player | `players[#players]:GetPos()` |
+| `Player:getBonePos` | x: float, y: float, z: float | bone_index: number | this is a function inside the Player table, it returns the position of a bone of the player | `bonePosX, bonePosY, bonePosZ = players[#players]:getBonePos(1)` |
+| `Player:getRot` | pitch: float, yaw: float | none | this is a function inside the Player table, it returns the rotation of the player | `pitch, yaw = players[#players]:getRot()` |
+| `Player:getBoneMatrix` | bones: list[UTransform] | none | this is a function inside the Player table, it returns all the bones of the player as a list of UTransform | `bones = players[#players]:getBoneMatrix()` |
+| `UTransform:getPos` | x: float, y: float, z: float | none | this is a function inside the UTransform table, it returns the position of the transform | `posX, posY, posZ = LP.getMB():getTrm():getPos()` |
+| `UTransform:setPos` | none | x: float, y: float, z: float | this is a function inside the UTransform table, it sets transform's position | `LP.getMB():getTrm():setPos(0, 0, 0)` |
+| `UTransform:getRot` | pitch: float, yaw: float, roll: float | none | this is a function inside the UTransform table, it returns transform's rotation | `pitch, yaw, roll = LP.getMB():getTrm():getRot()` |
+| `UTransform:setRot` | none | x: float, y: float, z: float | this is a function inside the UTransform table, it sets transform's rotation | `LP.getMB():getTrm():setRot(0, 0, 0)` |
+| `UTransform:getGameObject` | gameObject: lightuserdata | none | this is a function inside the UTransform table, it returns transform's GameObject | `gameObject = LP.getMB():getTrm():getGameObject()` |
+| `URigidbody:getVel` | x: float, y: float, z: float | none | this function is inside the URigidbody table, it returns the velocity of the rb | `velX, velY, velZ = LP.getRigidbody():getVel()` |
+| `URigidbody:setVel` | none | x: float, y: float, z: float | this function is inside the URigidbody table, it sets the velocity of the rb | `LP.getRigidbody():setVel(0, 0, 0)` |
+| `URigidbody:getAngularVel` | x: float, y: float, z: float | none | this function is inside the URigidbody table, it returns the angular velocity of the rb | `velX, velY, velZ = LP.getRigidbody():getAngularVel()` |
+| `URigidbody:setAngularVel` | none | x: float, y: float, z: float | this function is inside the URigidbody table, it sets the angular velocity of the rb | `LP.getRigidbody():setAngularVel(0, 0, 0)` |
+| `URigidbody:getDrag` | drag: float | none | this function is inside the URigidbody table, it returns the drag of the rb | `myDrag = LP.getRigidbody():getDrag()` |
+| `URigidbody:setDrag` | none | drag: float | this function is inside the URigidbody table, it sets the drag of the rb | `LP.getRigidbody():setDrag(0.0)` |
+| `URigidbody:setAngularDrag` | none | drag: float | this function is inside the URigidbody table, it sets the angular drag of the rb | `LP.getRigidbody():setAngularDrag(0.0)` |
+| `URigidbody:setMass` | none | mass: float | this function is inside the URigidbody table, it sets the mass of the rb | `LP.getRigidbody():setMass(0.0)` |
+| `URigidbody:setUseGravity` | none | bUseGravity: boolean | this function is inside the URigidbody table, it sets the userGravity of the rb | `LP.getRigidbody():setUseGravity(false)` |
+| `URigidbody:getIsKinematic` | isKinematic: boolean | none | this function is inside the URigidbody table, it returns the isKinematic of the rb | `myDrag = LP.getRigidbody():getIsKinematic()` |
+| `URigidbody:setIsKinematic` | none | isKenamtic: boolean | this function is inside the URigidbody table, it sets the isKinematic of the rb | `LP.getRigidbody():setIsKinematic(false)` |
+| `URigidbody:getPos` | x: float, y: float, z: float | none | this function is inside the URigidbody table, it returns the position of the rb | `posX, posY, posZ = LP.getRigidbody():getPos()` |
+| `URigidbody:setPos` | none | x: float, y: float, z: float | this function is inside the URigidbody table, it sets the position of the rb | `LP.getRigidbody():setPos(0, 0, 0)` |
+| `URigidbody:getRot` | pitch: float, yaw: float, roll: float | none | this function is inside the URigidbody table, it returns the rotation of the rb | `pitch, yaw, roll = LP.getRigidbody():getRot()` |
+| `URigidbody:setRot` | none | pitch: float, yaw: float, roll: float | this function is inside the URigidbody table, it sets the rotation of the rb | `LP.getRigidbody():setRot(0, 0, 0)` |
+| `URigidbody:AddForce` | none | forceX: float, forceY: float, forceZ: float | this function is inside the URigidbody table, it adds force to the rb | `LP.getRigidbody(1.0, 1.0, 1.0)` |
+| `UMonoBehaviour:getTrm()` | transform: UTransform | none | this function is inside the UMonoBehaviour table, it returns its transform | `myTrm = LP.getMB():getTrm()` |
+| `UMonoBehaviour:getGameObject()` | gameObject: lightuserdata | none | this function is inside the UMonoBehaviour table, it returns its GameObject | `myGameObject = LP.getMB():getGameObject()` |
+| `UMonoBehaviour:getPos()` | x: float, y: float, z: float | none | this function is inside the UMonoBehaviour table, its a quick way to access the transform's position | `myPosX, myPosY, myPosZ = LP.getMB():getPos()` |
+
+
+
+
 
 
 **The documentation is not done, I just have been writing for 3 hours. I will continue tomorrow because there is much left!**
