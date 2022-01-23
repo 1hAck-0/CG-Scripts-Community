@@ -84,6 +84,7 @@ Now finally, here is the list of all native functions!
 | `Enable` | none | none | forces to enable the current script | could be useful in `OnGUIDisable` |
 | `Disable` | none | none | forces to disable the current script | could be useful in `OnGUIEnable` |
 | `Color` | web_color: number | r: number, g: number = 255, b: number = 255, a: number = 255 | returns a web_color | `draw.AddText(100, 100, "Text", Color(255, 0, 0))` |
+| `LUDtoINT` | pAdress: number | LUD: lightuserdata | retunrs the light user data's address | `pMyLightUserData = LUDtoINT(myLightUserData)` |
 | `menu.SetFeature` | none | tabOfTheFeature: string, featureGUIname: string, value: bool/float/number/string | sets a value of a feature/option in the menu | `menu.SetFeature("Main", "Invisibility", true)` |
 | `menu.GetFeature` | value: bool/float/number/string | tabOfTheFeature: string, featureGUIname: string | gets the value of a feature/option in the menu | `bAimbot = menu.GetFeature("Combat", "Aim Assist")` |
 | `gui.MessageBoxA` | pressed button id: number | message: string, title: string, type: number | N/A | `if IDYES == gui.MessageBoxA("This box will have YES and NO buttons.", "Example Message Box", MB_YESNO) then ...` |
