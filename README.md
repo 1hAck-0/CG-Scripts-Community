@@ -14,7 +14,7 @@ Lua Scripts for the free 1hAck Crab Game Mod Menu and a guide on how to make you
 ## Create Your OWN Scripts! (Part 1 - Introduction)
 **First of all, learn the basics of LUA, it is one of the simplest programming language so it shouldn't be hard! Also make sure to read the ENTIRE TUTORIAL if you want to make an actually useful script!! The documentation is more than enough, you just have to read!!**
 
-**Btw, anyone who makes at least 1 useful script and shares it on the [discord server](https://discord.gg/Wua44KTJvd) will get the *Script Maker* role ;)**
+**Btw, anyone who makes at least 1 useful script and shares it on the [discord server](https://discord.gg/j87B5WsWQQ) will get the *Script Maker* role ;)**
 
 *Time to read this part **carefully**: ~30 minutes+*
 
