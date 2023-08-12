@@ -4,7 +4,7 @@ Lua Scripts for the free 1hAck Crab Game Mod Menu and a guide on how to make you
 ## How to Load Scripts
 1. Dwnload the script you want to use
 2. Put it in a folder that you will remember for the next 5 minutes
-3. Open up Crab Game and inject the [1hAck Mod Menu](https://discord.gg/Wua44KTJvd) (v3.2 or higher only)
+3. Open up Crab Game and inject the [1hAck Mod Menu](https://discord.gg/1heck) (v3.2 or higher only)
 4. Click on *Scripts* in the bottom right corner of the Menu, a window should appear
 5. Click on *Open Folder* and select the folder that you put the script in
 6. You should see the name of the file on the right, to enable the script click on the checkbox near the name
@@ -14,7 +14,7 @@ Lua Scripts for the free 1hAck Crab Game Mod Menu and a guide on how to make you
 ## Create Your OWN Scripts! (Part 1 - Introduction)
 **First of all, learn the basics of LUA, it is one of the simplest programming language so it shouldn't be hard! Also make sure to read the ENTIRE TUTORIAL if you want to make an actually useful script!! The documentation is more than enough, you just have to read!!**
 
-**Btw, anyone who makes at least 1 useful script and shares it on the [discord server](https://discord.gg/j87B5WsWQQ) will get the *Script Maker* role ;)**
+**Btw, anyone who makes at least 1 useful script and shares it on the [discord server](https://discord.gg/1heck) will get the *Script Maker* role ;)**
 
 *Time to read this part **carefully**: ~30 minutes+*
 
